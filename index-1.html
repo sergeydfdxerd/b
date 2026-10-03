@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Биохимия спорта и ЗОЖ</title>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f2;--surf:#fff;--ink:#12263a;--mute:#51657a;--line:#cfdbe0;--acc:#0b7a75;--hot:#d23b4e;--soft:#dcebea;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1a24;--surf:#152532;--ink:#e6eef3;--mute:#9bb0c0;--line:#27404f;--acc:#3ec5bd;--hot:#ff7587;--soft:#183a42}}
+:root[data-theme="dark"]{--bg:#0e1a24;--surf:#152532;--ink:#e6eef3;--mute:#9bb0c0;--line:#27404f;--acc:#3ec5bd;--hot:#ff7587;--soft:#183a42}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Onest,system-ui,sans-serif}
+.w{max-width:880px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Unbounded,Onest,sans-serif;line-height:1.2;margin:0}
+header{padding:56px 0 40px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(28px,7vw,52px);font-weight:700;max-width:14em}
+header p{max-width:36em;color:var(--mute);margin:18px 0 22px}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+nav a{color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:8px 16px;border-radius:99px;font-weight:500;font-size:15px}
+nav a:hover,nav a:focus-visible{background:var(--ink);color:var(--bg);outline:none}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+h2{font-size:clamp(22px,5vw,32px);margin-bottom:14px}
+h3{font-size:17px;margin:0 0 6px}
+.lead{color:var(--mute);max-width:40em;margin:0 0 24px}
+.bars{display:grid;gap:14px;margin:8px 0 28px}
+.bar{background:var(--surf);border:1px solid var(--line);border-radius:10px;padding:16px}
+.bar b{display:block;font-weight:700}
+.track{height:12px;border-radius:6px;background:var(--soft);margin:10px 0 8px;overflow:hidden}
+.fill{height:100%;border-radius:6px;background:var(--acc)}
+.bar small{color:var(--mute);display:block}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.box{border-left:3px solid var(--acc);padding:2px 0 2px 14px}
+.box p{margin:0;color:var(--mute);font-size:16px}
+.calc{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:22px}
+.calc h3{font-size:20px;margin-bottom:14px}
+.f{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+label{display:grid;gap:4px;font-size:14px;color:var(--mute);font-weight:500}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;width:100%;min-height:44px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+button{margin-top:16px;font:700 16px Onest,sans-serif;background:var(--hot);color:#fff;border:0;border-radius:99px;padding:12px 24px;min-height:44px;cursor:pointer}
+.out{margin-top:18px;padding:16px;background:var(--soft);border-radius:10px;display:none}
+.out.on{display:block}
+.big{font:700 clamp(26px,6vw,36px) Unbounded,sans-serif;color:var(--acc)}
+.out ul{margin:8px 0 0;padding-left:20px}
+.why{margin-top:14px;font-size:14.5px;color:var(--mute);border-top:1px dashed var(--line);padding-top:12px}
+.why code{color:var(--ink);background:var(--bg);padding:1px 6px;border-radius:5px;font-size:13.5px}
+footer{padding:32px 0 48px;color:var(--mute);font-size:14.5px}
+footer li{margin-bottom:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="w">
+<h1>Что происходит в клетках, когда вы тренируетесь и спите</h1>
+<p>Коротко о биохимии мышц, восстановления и питания. Два калькулятора с открытыми формулами и ссылками на исследования.</p>
+<nav><a href="#muscle">Мышцы</a><a href="#sleep">Сон</a><a href="#calc">Калькуляторы</a><a href="#src">Источники</a></nav>
+</div></header>
+
+<main class="w">
+<section id="muscle">
+<h2>Откуда мышце берётся энергия</h2>
+<p class="lead">Прямым «топливом» сокращения служит АТФ. Запас её в мышце хватает на секунды, поэтому клетка включает три системы ресинтеза, и какая из них ведёт, зависит от длительности и мощности нагрузки.</p>
+<div class="bars">
+<div class="bar"><b>Фосфагенная (АТФ–креатинфосфат)</b><div class="track"><div class="fill" style="width:10%"></div></div><small>До ~10 секунд. Креатинфосфат передаёт фосфат на АДФ и мгновенно восстанавливает АТФ. Спринт, максимальный подъём штанги.</small></div>
+<div class="bar"><b>Гликолитическая</b><div class="track"><div class="fill" style="width:40%"></div></div><small>~10 секунд – 2 минуты. Глюкоза и гликоген распадаются до пирувата и лактата без кислорода. Быстро, но с накоплением ионов H⁺, которые снижают pH и вызывают жжение и утомление.</small></div>
+<div class="bar"><b>Окислительная (митохондрии)</b><div class="track"><div class="fill" style="width:100%"></div></div><small>От 2 минут и дольше. Углеводы и жиры сгорают с кислородом: энергии много, скорость ниже. Бег, плавание, велосипед.</small></div>
+</div>
+<div class="grid">
+<div class="box"><h3>Микроповреждения и рост</h3><p>Нагрузка вызывает микроразрывы мышечных волокон и сигнал через путь mTOR. После отдыха и белка клетка достраивает белки сократительного аппарата с запасом: так возникает гипертрофия.</p></div>
+<div class="box"><h3>Лактат — не «яд»</h3><p>Лактат не причина боли на следующий день. Он вымывается за десятки минут, а печень и сердце используют его как топливо. Крепатура связана с микроповреждениями и воспалением.</p></div>
+<div class="box"><h3>Гликоген</h3><p>Запас углеводов в мышцах и печени ограничен. При его истощении падает мощность, поэтому после долгих тренировок важны углеводы и белок.</p></div>
+</div>
+</section>
+
+<section id="sleep">
+<h2>Зачем клеткам сон</h2>
+<p class="lead">Во сне организм не «выключается»: многие восстановительные процессы идут активнее именно ночью.</p>
+<div class="grid">
+<div class="box"><h3>Гормон роста</h3><p>Основной всплеск секреции приходится на глубокий медленный сон. Он поддерживает синтез белка и ремонт тканей.</p></div>
+<div class="box"><h3>Очистка мозга</h3><p>У животных показано, что во сне расширяются промежутки между клетками, и через глимфатическую систему быстрее выводятся побочные продукты обмена, включая бета-амилоид.</p></div>
+<div class="box"><h3>Гликоген и инсулин</h3><p>Недосып снижает чувствительность к инсулину и ухудшает восполнение гликогена. Растёт кортизол, который тормозит восстановление.</p></div>
+<div class="box"><h3>Иммунитет</h3><p>При хроническом недосыпе падает активность иммунных клеток, и риск простуд после тренировок растёт. Ориентир для взрослых: 7–9 часов.</p></div>
+</div>
+</section>
+
+<section id="calc">
+<h2>Калькуляторы</h2>
+<p class="lead">Результаты — ориентиры для здорового взрослого. Они не заменяют консультацию врача или диетолога.</p>
+
+<div class="calc"><h3>Суточная норма калорий и БЖУ</h3>
+<div class="f">
+<label>Пол<select id="sex"><option value="m">Мужской</option><option value="f">Женский</option></select></label>
+<label>Возраст, лет<input id="age" type="number" inputmode="numeric" value="30" min="15" max="90"></label>
+<label>Рост, см<input id="h" type="number" inputmode="numeric" value="175" min="120" max="220"></label>
+<label>Вес, кг<input id="w" type="number" inputmode="decimal" value="70" min="35" max="200"></label>
+<label>Активность<select id="act"><option value="1.2">Сидячий образ жизни</option><option value="1.375">Тренировки 1–3 раза в неделю</option><option value="1.55" selected>Тренировки 3–5 раз</option><option value="1.725">Тренировки 6–7 раз</option><option value="1.9">Тяжёлая работа и тренировки</option></select></label>
+<label>Цель<select id="goal"><option value="0.85">Снижение веса (−15%)</option><option value="1" selected>Поддержание веса</option><option value="1.1">Набор массы (+10%)</option></select></label>
+</div>
+<button id="b1">Рассчитать калории</button>
+<div class="out" id="o1" aria-live="polite"></div>
+<div class="why"><b>Научное обоснование.</b> Базовый обмен считается по формуле Миффлина–Сан Жеора: <code>10·вес + 6,25·рост − 5·возраст + 5</code> для мужчин и <code>… − 161</code> для женщин. В сравнении с более старыми формулами она точнее оценивает обмен у большинства людей (Frankenfield и др., 2005). Умножение на коэффициент активности (1,2–1,9) даёт суточный расход. Белок 1,6–2,2 г/кг соответствует метаанализу Morton и др. (2018) для тренирующихся, жиры берём около 25% калорий, остальное — углеводы.</div></div>
+
+<div class="calc"><h3>Водный баланс на тренировке</h3>
+<div class="f">
+<label>Вес, кг<input id="w2" type="number" inputmode="decimal" value="70" min="35" max="200"></label>
+<label>Длительность, ч<input id="dur" type="number" inputmode="decimal" value="1" min="0" max="8" step="0.25"></label>
+<label>Интенсивность<select id="int"><option value="0.5">Лёгкая (0,5 л/ч пота)</option><option value="0.9" selected>Средняя (0,9 л/ч)</option><option value="1.4">Высокая (1,4 л/ч)</option></select></label>
+<label>Условия<select id="env"><option value="1">Прохладно, зал</option><option value="1.2">Жарко или душно</option></select></label>
+</div>
+<button id="b2">Рассчитать воду</button>
+<div class="out" id="o2" aria-live="polite"></div>
+<div class="why"><b>Научное обоснование.</b> Базовая потребность в жидкости принимается около 33 мл на кг массы тела в сутки (ориентир EFSA и ACSM, 30–35 мл/кг). Потери с потом зависят от нагрузки и погоды: типичная скорость от 0,5 до 1,5 л/ч (Sawka и др., ACSM, 2007). Обезвоживание более 2% массы тела снижает работоспособность, поэтому к вычисленным потерям мы не добавляем лишнего, а советуем компенсировать их примерно на 125–150% в течение нескольких часов. Точнее всего потери определяет взвешивание до и после тренировки: каждый потерянный 1 кг ≈ 1 л жидкости.</div></div>
+</section>
+
+<section id="src">
+<h2>Источники</h2>
+<footer style="padding:0"><ul>
+<li>Mifflin M.D. et al. A new predictive equation for resting energy expenditure. Am J Clin Nutr, 1990.</li>
+<li>Frankenfield D. et al. Comparison of predictive equations for resting metabolic rate. J Am Diet Assoc, 2005.</li>
+<li>Morton R.W. et al. Protein supplementation and resistance training: a meta-analysis. Br J Sports Med, 2018.</li>
+<li>Sawka M.N. et al. ACSM Position Stand: Exercise and Fluid Replacement. Med Sci Sports Exerc, 2007.</li>
+<li>Xie L. et al. Sleep drives metabolite clearance from the adult brain. Science, 2013.</li>
+</ul>
+<p>Материал носит образовательный характер и не является медицинской рекомендацией.</p></footer>
+</section>
+</main>
+
+<script>
+const $=id=>document.getElementById(id),n=id=>parseFloat($(id).value);
+const R=(x,s=50)=>Math.round(x/s)*s;
+$('b1').onclick=()=>{
+ const w=n('w'),h=n('h'),a=n('age'),o=$('o1');
+ if(!(w>0&&h>0&&a>0)){o.className='out on';o.textContent='Заполните возраст, рост и вес числами.';return}
+ const bmr=10*w+6.25*h-5*a+($('sex').value==='m'?5:-161);
+ const kcal=bmr*n('act')*n('goal');
+ const p=w*1.8,f=kcal*0.25/9,c=(kcal-p*4-f*9)/4;
+ o.className='out on';
+ o.innerHTML=`<div class="big">${R(kcal,10)} ккал/сут</div><ul><li>Базовый обмен: ${R(bmr,10)} ккал</li><li>Белок: ~${Math.round(p)} г (1,6–2,2 г/кг: ${Math.round(w*1.6)}–${Math.round(w*2.2)} г)</li><li>Жиры: ~${Math.round(f)} г</li><li>Углеводы: ~${Math.round(Math.max(c,0))} г</li></ul>`;
+};
+$('b2').onclick=()=>{
+ const w=n('w2'),d=n('dur'),o=$('o2');
+ if(!(w>0&&d>=0)){o.className='out on';o.textContent='Введите вес и длительность числами.';return}
+ const base=w*0.033,sweat=n('int')*d*n('env'),total=base+sweat;
+ o.className='out on';
+ o.innerHTML=`<div class="big">${total.toFixed(1)} л в сутки</div><ul><li>Базовая норма: ${base.toFixed(1)} л</li><li>Потеря с потом на тренировке: ~${sweat.toFixed(1)} л</li><li>После тренировки выпейте ${(sweat*1.25).toFixed(1)}–${(sweat*1.5).toFixed(1)} л в течение 2–4 часов</li></ul>`;
+};
+</script>
+</body>
+</html>
